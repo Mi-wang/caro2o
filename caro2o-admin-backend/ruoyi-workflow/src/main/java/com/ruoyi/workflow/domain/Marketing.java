@@ -168,16 +168,16 @@ public class Marketing extends BaseEntity
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("id", getId())
-            .append("name", getName())
-            .append("sort", getSort())
-            .append("creattime", getCreattime())
-            .append("stopTime", getStopTime())
-            .append("displayposition", getDisplayposition())
-            .append("bannerImage", getBannerImage())
-            .append("h5Url", getH5Url())
-            .append("rule", getRule())
-            .append("state", getState())
-            .toString();
+                .append("id", getId())
+                .append("name", getName())
+                .append("sort", getSort())
+                .append("creattime", getCreattime())
+                .append("stopTime", getStopTime())
+                .append("displayposition", getDisplayposition())
+                .append("bannerImage", getBannerImage())
+                .append("h5Url", getH5Url())
+                .append("rule", getRule())
+                .append("state", getState())
+                .toString();
     }
 }

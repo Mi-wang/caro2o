@@ -1,4 +1,4 @@
-package com.ruoyi.workflow.controller;
+package com.ruoyi.web.controller.workflow;
 
 import java.util.List;
 import java.util.Arrays;
@@ -97,7 +97,7 @@ public class MarketingController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('workflow:marketing:remove')")
     @Log(title = "营销活动", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{ids}")
+    @DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(marketingService.removeBatchByIds(Arrays.asList(ids)));

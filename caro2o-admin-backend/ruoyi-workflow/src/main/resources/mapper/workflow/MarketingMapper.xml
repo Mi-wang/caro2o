@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ruoyi.workflow.mapper.MarketingMapper">
 
     <resultMap type="Marketing" id="MarketingResult">
@@ -17,16 +17,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="state"    column="state"    />
     </resultMap>
 
-  <sql id="selectMarketingVo">
-    select id, name, sort, creattime, stop_time, displayposition, banner_image, H5_url, rule, state from marketing
-  </sql>
+    <sql id="selectMarketingVo">
+        select id, name, sort, creattime, stop_time, displayposition, banner_image, H5_url, rule, state from marketing
+    </sql>
 
-  <select id="selectMarketingList" parameterType="Marketing" resultMap="MarketingResult">
-    <include refid="selectMarketingVo"/>
-    <where>
-                  <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
-                  <if test="creattime != null "> and creattime = #{creattime}</if>
-                  <if test="stopTime != null "> and stop_time = #{stopTime}</if>
-    </where>
-  </select>
+    <select id="selectMarketingList" parameterType="Marketing" resultMap="MarketingResult">
+        <include refid="selectMarketingVo"/>
+        <where>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="creattime != null "> and creattime = #{creattime}</if>
+            <if test="stopTime != null "> and stop_time = #{stopTime}</if>
+        </where>
+    </select>
 </mapper>

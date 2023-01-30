@@ -33,12 +33,12 @@ public class MarketingTask extends BaseEntity
     /** 可完成任务 */
     @Excel(name = "可完成任务")
     @TableField("function")
-    private Long function;
+    private String function;
 
     /** 参与限制 */
     @Excel(name = "参与限制")
     @TableField("join_limit")
-    private Long joinLimit;
+    private String joinLimit;
 
     /** 次数限制 */
     @Excel(name = "次数限制")
@@ -63,21 +63,21 @@ public class MarketingTask extends BaseEntity
     {
         return name;
     }
-    public void setFunction(Long function)
+    public void setFunction(String function)
     {
         this.function = function;
     }
 
-    public Long getFunction()
+    public String getFunction()
     {
         return function;
     }
-    public void setJoinLimit(Long joinLimit)
+    public void setJoinLimit(String joinLimit)
     {
         this.joinLimit = joinLimit;
     }
 
-    public Long getJoinLimit()
+    public String getJoinLimit()
     {
         return joinLimit;
     }

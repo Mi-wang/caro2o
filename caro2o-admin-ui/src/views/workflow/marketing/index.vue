@@ -3,26 +3,26 @@
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="活动名称" prop="name">
         <el-input
-          v-model="queryParams.name"
-          placeholder="请输入活动名称"
-          clearable
-          @keyup.enter.native="handleQuery"
+            v-model="queryParams.name"
+            placeholder="请输入活动名称"
+            clearable
+            @keyup.enter.native="handleQuery"
         />
       </el-form-item>
       <el-form-item label="创建时间" prop="creattime">
         <el-date-picker clearable
-          v-model="queryParams.creattime"
-          type="date"
-          value-format="yyyy-MM-dd"
-          placeholder="请选择创建时间">
+                        v-model="queryParams.creattime"
+                        type="date"
+                        value-format="yyyy-MM-dd"
+                        placeholder="请选择创建时间">
         </el-date-picker>
       </el-form-item>
       <el-form-item label="终止时间" prop="stopTime">
         <el-date-picker clearable
-          v-model="queryParams.stopTime"
-          type="date"
-          value-format="yyyy-MM-dd"
-          placeholder="请选择终止时间">
+                        v-model="queryParams.stopTime"
+                        type="date"
+                        value-format="yyyy-MM-dd"
+                        placeholder="请选择终止时间">
         </el-date-picker>
       </el-form-item>
       <el-form-item>
@@ -34,44 +34,44 @@
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-button
-          type="primary"
-          plain
-          icon="el-icon-plus"
-          size="mini"
-          @click="handleAdd"
-          v-hasPermi="['workflow:marketing:add']"
+            type="primary"
+            plain
+            icon="el-icon-plus"
+            size="mini"
+            @click="handleAdd"
+            v-hasPermi="['workflow:marketing:add']"
         >新增</el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button
-          type="success"
-          plain
-          icon="el-icon-edit"
-          size="mini"
-          :disabled="single"
-          @click="handleUpdate"
-          v-hasPermi="['workflow:marketing:edit']"
+            type="success"
+            plain
+            icon="el-icon-edit"
+            size="mini"
+            :disabled="single"
+            @click="handleUpdate"
+            v-hasPermi="['workflow:marketing:edit']"
         >修改</el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button
-          type="danger"
-          plain
-          icon="el-icon-delete"
-          size="mini"
-          :disabled="multiple"
-          @click="handleDelete"
-          v-hasPermi="['workflow:marketing:remove']"
+            type="danger"
+            plain
+            icon="el-icon-delete"
+            size="mini"
+            :disabled="multiple"
+            @click="handleDelete"
+            v-hasPermi="['workflow:marketing:remove']"
         >删除</el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button
-          type="warning"
-          plain
-          icon="el-icon-download"
-          size="mini"
-          @click="handleExport"
-          v-hasPermi="['workflow:marketing:export']"
+            type="warning"
+            plain
+            icon="el-icon-download"
+            size="mini"
+            @click="handleExport"
+            v-hasPermi="['workflow:marketing:export']"
         >导出</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
@@ -107,29 +107,29 @@
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-edit"
-            @click="handleUpdate(scope.row)"
-            v-hasPermi="['workflow:marketing:edit']"
+              size="mini"
+              type="text"
+              icon="el-icon-edit"
+              @click="handleUpdate(scope.row)"
+              v-hasPermi="['workflow:marketing:edit']"
           >修改</el-button>
           <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-delete"
-            @click="handleDelete(scope.row)"
-            v-hasPermi="['workflow:marketing:remove']"
+              size="mini"
+              type="text"
+              icon="el-icon-delete"
+              @click="handleDelete(scope.row)"
+              v-hasPermi="['workflow:marketing:remove']"
           >删除</el-button>
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
-      v-show="total>0"
-      :total="total"
-      :page.sync="queryParams.pageNum"
-      :limit.sync="queryParams.pageSize"
-      @pagination="getList"
+        v-show="total>0"
+        :total="total"
+        :page.sync="queryParams.pageNum"
+        :limit.sync="queryParams.pageSize"
+        @pagination="getList"
     />
 
     <!-- 添加或修改营销活动对话框 -->
@@ -140,6 +140,35 @@
         </el-form-item>
         <el-form-item label="排序" prop="sort">
           <el-input v-model="form.sort" placeholder="请输入排序" />
+        </el-form-item>
+       <!-- <el-form-item label="创建时间" prop="creattime">
+          <el-date-picker clearable
+                          v-model="form.creattime"
+                          type="date"
+                          value-format="yyyy-MM-dd"
+                          placeholder="请选择创建时间">
+          </el-date-picker>
+        </el-form-item>
+        <el-form-item label="终止时间" prop="stopTime">
+          <el-date-picker clearable
+                          v-model="form.stopTime"
+                          type="date"
+                          value-format="yyyy-MM-dd"
+                          placeholder="请选择终止时间">
+          </el-date-picker>
+        </el-form-item>-->
+
+
+        <el-form-item label="活动时间" prop="creattime">
+          <el-col :span="11">
+            <el-date-picker clearable v-model="form.creattime" type="date" value-format="yyyy-MM-dd" placeholder="请选择创建时间" style="width: 100%;">
+            </el-date-picker>
+          </el-col>
+          <el-col class="line" :span="2">-</el-col>
+          <el-col :span="11">
+            <el-date-picker clearable v-model="form.stopTime" type="date" value-format="yyyy-MM-dd" style="width: 100%;" placeholder="请选择终止时间">
+            </el-date-picker>
+          </el-col>
         </el-form-item>
         <el-form-item label="显示位置" prop="displayposition">
           <el-input v-model="form.displayposition" placeholder="请输入显示位置" />
@@ -154,7 +183,13 @@
           <el-input v-model="form.rule" placeholder="请输入活动规则" />
         </el-form-item>
         <el-form-item label="状态" prop="state">
-          <el-input v-model="form.state" placeholder="请输入状态" />
+          <el-select v-model="form.state" placeholder="请选择状态" clearable>
+            <el-option
+                v-for="dict in dict.type.sys_job_status"
+                :key="dict.value"
+                :label="dict.label"
+                :value="parseInt(dict.value)"/>
+          </el-select>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -200,7 +235,9 @@ export default {
         stopTime: null,
       },
       // 表单参数
-      form: {},
+      form: {
+        state: null,
+      },
       // 表单校验
       rules: {
       }
