@@ -63,7 +63,6 @@
 
     <el-table v-loading="loading" :data="tasksList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="${comment}" align="center" prop="id" />
       <el-table-column label="任务名称" align="center" prop="name" />
       <el-table-column label="可完成任务" align="center" prop="function" />
       <el-table-column label="参与限制" align="center" prop="joinLimit" />
@@ -105,8 +104,15 @@
         <el-form-item label="可完成任务" prop="function">
           <el-input v-model="form.function" placeholder="请输入可完成任务" />
         </el-form-item>
-        <el-form-item label="参与限制" prop="joinLimit">
+        <!--<el-form-item label="参与限制" prop="joinLimit">
           <el-input v-model="form.joinLimit" placeholder="请输入参与限制" />
+        </el-form-item>-->
+        <el-form-item label="参与限制" prop="joinLimit">
+          <el-select v-model="form.joinLimit" placeholder="请选择参与限制">
+            <el-option label="新用户" value="新用户"></el-option>
+            <el-option label="老用户" value="老用户"></el-option>
+            <el-option label="全部用户" value="全部用户"></el-option>
+          </el-select>
         </el-form-item>
         <el-form-item label="次数限制" prop="triesLimit">
           <el-input v-model="form.triesLimit" placeholder="请输入次数限制" />
