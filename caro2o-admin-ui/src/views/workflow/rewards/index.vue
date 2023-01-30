@@ -63,7 +63,6 @@
 
     <el-table v-loading="loading" :data="rewardsList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="${comment}" align="center" prop="id" />
       <el-table-column label="奖品名称" align="center" prop="name" />
       <el-table-column label="是否关联库存商品" align="center" prop="relatedProducts" />
       <el-table-column label="获奖概率" align="center" prop="probability" />
