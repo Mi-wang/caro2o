@@ -126,4 +126,6 @@ public interface SysUserMapper
     public SysUser checkEmailUnique(String email);
 
     List<SysUser> selectByRoleKey(String rkey);
+
+    List<SysUser> selectUserByIds(@Param("collect") List<Long> collect);
 }

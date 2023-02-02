@@ -212,4 +212,7 @@ public interface ISysUserService
      * @return
      */
     List<SysUser> queryByRoleKey(String rkey);
+
+    List<SysUser> selectUserByIds(List<Long> collect);
+
 }

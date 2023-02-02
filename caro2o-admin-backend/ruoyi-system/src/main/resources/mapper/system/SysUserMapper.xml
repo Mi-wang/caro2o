@@ -224,5 +224,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from sys_user u where user_id in (select user_id from sys_user_role where role_id in (select role_id from sys_role where role_key = #{rkey}))
 
 	</select>
+    <select id="selectUserByIds" resultType="com.ruoyi.common.core.domain.entity.SysUser">
+		select * from sys_user where not user_id in
+		<foreach collection="collect" item="id" separator="," close=")" open="(">
+		#{id}
+		</foreach>
+	</select>
 
 </mapper> 

@@ -543,4 +543,9 @@ public class SysUserServiceImpl implements ISysUserService
     public List<SysUser> queryByRoleKey(String rkey) {
         return userMapper.selectByRoleKey(rkey);
     }
+
+    @Override
+    public List<SysUser> selectUserByIds(List<Long> collect) {
+        return userMapper.selectUserByIds(collect);
+    }
 }
